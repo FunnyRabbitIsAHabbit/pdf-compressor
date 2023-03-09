@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="latin-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Stan Ermokhin">
+
+    <title>PDF Compressor</title></head>
+<body>
+<noscript>Sorry, you seem to have disabled JavaScript. This service relies heavily on it.</noscript>
+
+<section class="upper">
+
+    <script>
+        function openPage(pageName, elmnt) {
+            // Hide all elements with class="tabcontent" by default */
+            let i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // Remove the background color of all tablinks/buttons
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < tablinks.length; i++) {
+                if (elmnt !== tablinks[i]) {
+                    tablinks[i].style.backgroundColor = "";
+                } else {
+                    tablinks[i].style.backgroundColor = "#2b1918";
+                }
+
+            }
+
+            document.getElementById(pageName).style.display = "block";
+        }
+    </script>
+    <button class="tablink" onclick="openPage('left-tab', this)" id="defaultOpen">Main</button>
+    <button class="tablink" onclick="openPage('middle-tab', this)">Support</button>
+    <button class="tablink" onclick="openPage('right-tab', this)">Notice</button>
+    <button class="tablink" onclick="openPage('right2-tab', this)">About</button>
+    <div id="left-tab" class="tabcontent">
+        <div id="input">
+
+            <label for="file-input" id="input-label">Your Image File:</label><br>
+            <input type="file"
+                   class="button-17"
+                   id="file-input"
+                   onchange="myApp.previewFile()"
+                   accept=".png, .jpg, .jpeg, .bmp, .gif"><br>
+            <input type="button"
+                   class="button-17"
+                   role="button"
+                   id="upload-button"
+                   onclick="myApp.processImage()"
+                   value="Evaluate Gender">
+
+        </div>
+        <div id="output">
+            <p id="serverMsg"></p>
+            <img height="" width="" src="" alt="" id="fileImage">
+            <p>
+                This service is under continuous development.<br>
+                Current neural network version: <i id="model_version">to be acquired on evaluation</i>
+            </p>
+        </div>
+    </div>
+    <div id="middle-tab" class="tabcontent">
+        <script type="text/javascript">
+            function copy(elementId) {
+                // Get the text field
+                let copyText = document.getElementById(elementId).getElementsByTagName("span")[0];
+
+                navigator.clipboard.writeText(copyText.innerText);
+
+                // Alert the copied text
+                alert("Copied: " + copyText.innerText);
+            }
+        </script>
+        <p>Click to copy wallet address</p>
+        <ul class="not-list">
+            <li id="cryptoNano">
+                <button class="copySpanOnClick" onclick="copy(this.parentNode.id)">Nano</button>
+                <span>nano_3ujggh8jzf61rktd4wjpfigjgkkpiemaepefzyqrtnqcweb1u1sefczk1oeg</span></li>
+
+            <li id="cryptoETC">
+                <button class="copySpanOnClick" onclick="copy(this.parentNode.id)">EthereumClassic</button>
+                <span>0xdfbD0761CD05c1FE6408C2F77B08317cc9549C34</span></li>
+
+            <li id="cryptoRVN">
+                <button class="copySpanOnClick" onclick="copy(this.parentNode.id)">Ravencoin</button>
+                <span>RWpQjKs5GUr65Z746NXftgAv4rDUe1XZPC</span></li>
+
+            <li id="cryptoETH">
+                <button class="copySpanOnClick" onclick="copy(this.parentNode.id)">Ethereum</button>
+                <span>0x26a1f94690e0A7dbf8fC3b46930227F400561F41</span></li>
+
+            <li id="cryptoBTC">
+                <button class="copySpanOnClick" onclick="copy(this.parentNode.id)">Bitcoin</button>
+                <span>bc1qasscfpacns9qugk40lv5s3tk60svh205ssu9n2</span></li>
+
+            <li id="cryptoAE">
+                <button class="copySpanOnClick" onclick="copy(this.parentNode.id)">Aeternity</button>
+                <span>ak_fHX26ZfVv9BuweaEJ7uZj6gFuMSM3rGnK9QNTdCdpRQCGRKXH</span></li>
+        </ul>
+    </div>
+    <div id="right-tab" class="tabcontent">
+        <div id="agreement">
+            <p>
+                BY USING THIS SERVICE, YOU CONSENT TO THE CONDITIONS LISTED BELOW
+            </p>
+            <p>USER AGREEMENT AND SECURITY NOTICE</p>
+            <ol>
+                <li>
+                    Item1
+                </li>
+            </ol>
+        </div>
+    </div>
+    <div id="right2-tab" class="tabcontent">
+        <ul><h6>Project <i>initial</i> tech stack</h6>
+            <li>HTML, CSS, JavaScript</li>
+            <li>Tensorflow.JS</li>
+        </ul>
+        <ul><h6>Roadmap</h6>
+            <li>
+                <s>Move to Frontend only</s>
+            </li>
+        </ul>
+    </div>
+    <script>document.getElementById("defaultOpen").click();</script>
+</section>
+
+
+<section class="lower">
+    <div class="advertisement">
+    </div>
+</section>
+
+<section class="author">
+    &copy; Stan Ermokhin | 2023
+</section>
+</body>
+</html>
